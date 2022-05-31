@@ -10,6 +10,8 @@ awk -F, -f select_fields.awk dataset.csv > acs_2019_snap_w_race.csv
 #  Remove blanks and special characters
 sed -i '.old' -e 's/"-"//g' acs_2019_snap_w_race.csv
 
+#Make table in sql
 awk -F, -f make.awk -v tablename=acs_2019_snap_w_race acs_2019_snap_w_race.csv > acs_2019_snap_w_race.sql
 
+#upload data in sql (alternately can use the data import tool)
  awk -F, -f upload.awk -v tablename=acs_2019_snap_w_race acs_2019_snap_w_race.csv
