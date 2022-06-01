@@ -1,0 +1,65 @@
+SELECT 	tl_2010_04_zcta510.id, 
+
+	CAST(substring(acs_2019_snap_w_race.name FROM 7 FOR 5) AS INTEGER) as zip5,
+    acs_2019_snap_w_race.s2201_c01_001e as households,
+	acs_2019_snap_w_race.s2201_c01_021e as households_below_poverty_level,
+	acs_2019_snap_w_race.s2201_c01_026e,
+    acs_2019_snap_w_race.s2201_c01_027e,
+    acs_2019_snap_w_race.s2201_c01_028e,
+    acs_2019_snap_w_race.s2201_c01_029e,
+    acs_2019_snap_w_race.s2201_c01_030e,
+    acs_2019_snap_w_race.s2201_c01_031e,
+    acs_2019_snap_w_race.s2201_c01_032e,
+    acs_2019_snap_w_race.s2201_c01_033e,
+    acs_2019_snap_w_race.s2201_c01_034e,
+    acs_2019_snap_w_race.s2201_c02_021e,
+    acs_2019_snap_w_race.s2201_c02_023e,
+    acs_2019_snap_w_race.s2201_c02_025e,
+    acs_2019_snap_w_race.s2201_c02_026e,
+    acs_2019_snap_w_race.s2201_c02_027e,
+    acs_2019_snap_w_race.s2201_c02_028e,
+    acs_2019_snap_w_race.s2201_c02_029e,
+    acs_2019_snap_w_race.s2201_c02_030e,
+    acs_2019_snap_w_race.s2201_c02_031e,
+    acs_2019_snap_w_race.s2201_c02_032e,
+    acs_2019_snap_w_race.s2201_c02_033e,
+    acs_2019_snap_w_race.s2201_c03_001e,
+    acs_2019_snap_w_race.s2201_c03_025e,
+    acs_2019_snap_w_race.s2201_c03_026e,
+    acs_2019_snap_w_race.s2201_c03_027e,
+    acs_2019_snap_w_race.s2201_c03_028e,
+    acs_2019_snap_w_race.s2201_c03_029e,
+    acs_2019_snap_w_race.s2201_c03_030e,
+    acs_2019_snap_w_race.s2201_c03_031e,
+    acs_2019_snap_w_race.s2201_c03_032e,
+    acs_2019_snap_w_race.s2201_c03_033e,
+    acs_2019_snap_w_race.s2201_c04_021e AS percent_receiveing_foodstamps_below_poverty,
+    acs_2019_snap_w_race.s2201_c04_023e,
+    acs_2019_snap_w_race.s2201_c04_025e,
+    acs_2019_snap_w_race.s2201_c04_026e,
+    acs_2019_snap_w_race.s2201_c04_027e,
+    acs_2019_snap_w_race.s2201_c04_028e,
+    acs_2019_snap_w_race.s2201_c04_029e,
+    acs_2019_snap_w_race.s2201_c04_030e,
+    acs_2019_snap_w_race.s2201_c04_031e,
+    acs_2019_snap_w_race.s2201_c04_032e,
+    acs_2019_snap_w_race.s2201_c04_033e,
+	
+		
+	cast(acs_2019_snap_w_race.s2201_c01_025e as float)/cast(0.000001 + acs_2019_snap_w_race.s2201_c01_001e as float) as percent_white_calc,
+    acs_2019_snap_w_race.s2201_c02_025e as percent_acs_white,
+	
+	
+	
+		CAST(tl_2010_04_zcta510.zcta5ce10 AS integer) AS zip,
+		
+		geom
+
+FROM	tl_2010_04_zcta510,
+		acs_2019_snap_w_race
+		
+		--zip_code_deaths,
+		--population_by_zip
+		
+		
+WHERE 	CAST(substring(acs_2019_snap_w_race.name FROM 7 FOR 5) AS INTEGER) = CAST(tl_2010_04_zcta510.zcta5ce10 AS integer)
